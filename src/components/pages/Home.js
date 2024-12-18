@@ -9,8 +9,8 @@ import Explore from "./Explore";
 import Software from "./Software";
 import Digital from "./Digital"
 import Connect from "./Connect";
+import Button from "../cards/Button";
 gsap.registerPlugin(ScrollTrigger);
-
 function Home() {
   const headingRef = useRef();
   const subtextRef = useRef();
@@ -136,12 +136,7 @@ function Home() {
           Innovative Solutions for Unparalleled Digital Experiences
         </p>
         {/* Explore More Button */}
-        <button
-          ref={buttonRef}
-          className="bg-red-500 text-white px-6 py-3 rounded-md shadow-md hover:bg-red-600 transition duration-300"
-        >
-          Explore More
-        </button>
+        <Button/>
         {/* Devices Showcase */}
         <div className="mt-10 flex justify-center items-center space-x-4">
           {/* Left Image */}
