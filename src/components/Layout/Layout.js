@@ -4,6 +4,7 @@ import Routers from '../../Routers/Routers'
 import Header from '../Header/Header'
 import Footer from "../Footer/Footer"
 import { ThemeProvider } from '../ThemeContext'
+import Gold from '../pages/Gold'
 function Layout() {
   return (
     <Router>
@@ -11,6 +12,7 @@ function Layout() {
             <ThemeProvider>
               <Header/>
               <div><Routers/></div>
+              <Gold/>
               <Footer/>
             </ThemeProvider>
         </Fragment>
