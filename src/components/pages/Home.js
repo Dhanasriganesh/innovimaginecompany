@@ -10,7 +10,6 @@ import Software from "./Software";
 import Digital from "./Digital";
 import Connect from "./Connect";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
@@ -36,7 +35,7 @@ function Home() {
 
     gsap.fromTo(
       subtextRef.current,
-      { opacity: 0, y: -30 },
+      { opacity: 0, y: -20 },
       {
         opacity: 1,
         y: 0,
@@ -59,7 +58,7 @@ function Home() {
 
     useFrame(() => {
       if (modelRef.current && !isDragging) {
-        modelRef.current.rotation.y += 0.001; // Smooth auto-rotation
+        modelRef.current.rotation.y += 0.002; // Smooth auto-rotation
       }
     });
 
@@ -122,6 +121,7 @@ function Home() {
             width: "100%",
             height: "100%",
             zIndex: -1,
+            backgroundColor: "#000000", // Explicit black background
           }}
         >
           <Canvas
@@ -132,15 +132,23 @@ function Home() {
               far: 100,
             }}
           >
-            <ambientLight intensity={0.5} />
+            {/* Ambient light for general illumination */}
+            <ambientLight intensity={0.3} />
+
+            {/* Directional light with a higher intensity to highlight the model */}
             <directionalLight position={[10, 10, 5]} intensity={1} />
+            
+            {/* Add a spotlight for dynamic highlighting */}
+            <spotLight position={[0, 5, 5]} intensity={1.5} angle={Math.PI / 6} penumbra={1} />
+
+            {/* Rotating model */}
             <RotatingModel />
             <OrbitControls enableZoom={false} />
           </Canvas>
         </div>
 
         {/* Foreground Content */}
-        <div className="relative z-10 bg-gray-900/60 text-gray-200 min-h-screen flex flex-col justify-center items-center text-center px-4">
+        <div className="relative z-10  text-gray-200 min-h-screen flex flex-col justify-center items-center text-center px-4">
           <h1
             ref={headingRef}
             className="text-4xl font-serif sm:text-5xl font-bold text-gray-100 mb-4"
@@ -153,28 +161,6 @@ function Home() {
         </div>
       </div>
       
-      {/* Image Section */}
-      {/* <div className="mt-10 flex justify-center items-center space-x-4">
-        <img
-          ref={(el) => (imagesRef.current[0] = el)}
-          src="mobile_image_url_here" // Update with actual image URL
-          alt="Mobile View"
-          className="w-24 sm:w-32"
-        />
-        <img
-          ref={(el) => (imagesRef.current[1] = el)}
-          src="tablet_image_url_here" // Update with actual image URL
-          alt="Tablet View"
-          className="w-28 sm:w-40"
-        />
-        <img
-          ref={(el) => (imagesRef.current[2] = el)}
-          src="tablet_image_url_here" // Update with actual image URL
-          alt="Tablet View"
-          className="w-28 sm:w-40"
-        />
-      </div> */}
-
       {/* Other Sections */}
       <div>
         <Discover />

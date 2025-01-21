@@ -5,7 +5,7 @@ function Footer() {
   const { isDarkMode } = useTheme(); // Get theme state
 
   return (
-    <div className={`py-8 transition-colors duration-500 ${isDarkMode ? 'bg-gray-900 text-gray-200' : 'bg-gray-100 text-gray-800'}`}>
+    <div className={`py-8 transition-colors duration-500 ${isDarkMode ? ' text-gray-200' : 'bg-gray-100 text-gray-800'}`}>
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-start px-4">
         {/* Logo and Copyright */}
         <div className="mb-6 md:mb-0">

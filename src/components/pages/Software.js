@@ -7,7 +7,7 @@ function Software() {
   return (
     <div
       className={`${
-        isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
+        isDarkMode ? ' text-white' : 'bg-white text-gray-900'
       } py-16 px-4 sm:px-6 lg:px-8`}
     >
       <div className="max-w-7xl mx-auto">
